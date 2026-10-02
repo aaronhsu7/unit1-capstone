@@ -8,9 +8,23 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://aaronhsu-spoonful-capstone.s3-website-us-east-1.amazonaws.com',
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`CORS blocked origin: ${origin}`));
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   }),
 );
 
