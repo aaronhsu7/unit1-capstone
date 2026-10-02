@@ -5,27 +5,6 @@
 Spoonful is a recipe-management web application where users can create accounts, log in, and manage personal recipes.
 **Live site:** [Open Spoonful](http://aaronhsu-spoonful-capstone.s3-website-us-east-1.amazonaws.com)
 
-## Features
-
-- User signup and login
-- Recipe dashboard
-- Create, edit, and delete recipes
-- Empty-state dashboard for new users
-- Recipe cards with images, dates, and category tags
-- Light and dark themes
-- Responsive mobile-friendly design
-- AI-related backend route
-
-## Technology Stack
-
-- React and Vite
-- Node.js and Express
-- MongoDB Atlas with Mongoose
-- Amazon S3
-- AWS CLI
-- Cloudflare Quick Tunnel
-- GitHub Actions
-- Playwright
 
 ## Architecture
 
@@ -134,5 +113,3 @@ The workflow uses GitHub repository secrets for:
 - `BACKEND_URL`
 
 AWS credentials are kept out of the repository and stored securely in GitHub Actions.
-
-### Automated End-to-End Testing
