@@ -55,13 +55,34 @@ async function deleteInstruction(req, res) {
 }
 
 async function create(req, res) {
+  console.log("Recipe body:", req.body);
+  console.log("Authenticated user:", req.user);
+
   try {
-    const recipe = await Recipe.create({ ...req.body, ownerId: req.user._id });
-    res.status(201).json(recipe);
+    if (!req.user?._id) {
+      return res.status(401).json({
+        message: "You must be logged in to create a recipe.",
+      });
+    }
+
+    const recipe = await Recipe.create({
+      ...req.body,
+      ownerId: req.user._id,
+    });
+
+    return res.status(201).json(recipe);
   } catch (err) {
-    res.status(400).json(err);
+    console.error("Recipe creation failed:", err);
+
+    return res.status(400).json({
+      message: err.message,
+      validationErrors: err.errors
+        ? Object.values(err.errors).map((error) => error.message)
+        : [],
+    });
   }
 }
+
 
 async function getAll(req, res) {
   console.log("Hello");

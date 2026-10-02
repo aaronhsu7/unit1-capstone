@@ -1,0 +1,149 @@
+/* filename: src/pages/Signup/Signup.css */
+:root {
+  --cream: #fff7e8;
+  --black: #1d1d1d;
+  --gray: #707070;
+  --green: #6baa37;
+  --pale-green: #dceecb;
+}
+
+.signup-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 64px 32px 80px;
+  background: var(--cream);
+  color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-card {
+  width: min(100%, 464px);
+  margin: 0 auto;
+}
+
+.signup-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 82px;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.signup-brand-mark {
+  font-size: 42px;
+  line-height: 0.7;
+  transform: rotate(-12deg);
+}
+
+.signup-card h1 {
+  margin: 0 0 64px;
+  font-size: clamp(48px, 9vw, 58px);
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+.signup-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-card label {
+  margin-bottom: 12px;
+  color: var(--gray);
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.signup-card input {
+  width: 100%;
+  height: 76px;
+  box-sizing: border-box;
+  margin-bottom: 26px;
+  padding: 0 15px;
+  border: 2px solid #777;
+  border-radius: 16px;
+  background: transparent;
+  color: var(--black);
+  font-size: 24px;
+  outline: none;
+}
+
+.signup-card input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgb(107 170 55 / 18%);
+}
+
+.signup-card input::placeholder {
+  color: #777;
+}
+
+.signup-error {
+  margin: -8px 0 16px;
+  color: #b42318;
+  font-size: 16px;
+}
+
+.signup-card form button,
+.cancel-button {
+  width: 100%;
+  min-height: 76px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signup-card form button {
+  border: 2px solid var(--green);
+  background: var(--green);
+  color: #ffffff;
+}
+
+.signup-card form button:hover {
+  background: #5c9630;
+  border-color: #5c9630;
+}
+
+.signup-card form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.cancel-button {
+  margin-top: 17px;
+  border: 2px solid var(--green);
+  background: transparent;
+  color: var(--green);
+}
+
+.cancel-button:hover {
+  background: rgb(107 170 55 / 10%);
+}
+
+@media (max-width: 520px) {
+  .signup-page {
+    padding: 48px 32px 64px;
+  }
+
+  .signup-brand {
+    margin-bottom: 64px;
+  }
+
+  .signup-card h1 {
+    margin-bottom: 58px;
+    font-size: 50px;
+  }
+
+  .signup-card label {
+    font-size: 21px;
+  }
+
+  .signup-card input,
+  .signup-card form button,
+  .cancel-button {
+    font-size: 20px;
+  }
+}

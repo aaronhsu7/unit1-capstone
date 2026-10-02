@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
+// filename: backend/models/recipe.js
+const mongoose = require('mongoose');
 
 const ingredientSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  quantity: { type: String, required: true },
+  quantity: { type: String, required: false },
 });
 
 const instructionSchema = new mongoose.Schema({
@@ -20,7 +21,7 @@ const recipeSchema = new mongoose.Schema(
     tags: [String],
     ownerId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
   },
@@ -29,4 +30,4 @@ const recipeSchema = new mongoose.Schema(
   },
 );
 
-module.exports = mongoose.model("Recipe", recipeSchema);
+module.exports = mongoose.model('Recipe', recipeSchema);
