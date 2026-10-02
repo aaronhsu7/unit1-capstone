@@ -1,0 +1,2 @@
+mkdir -p e2e
+nano playwright.config.cjs
